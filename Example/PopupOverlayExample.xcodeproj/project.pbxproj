@@ -12,11 +12,11 @@
 		16E5323922A4798C00E8B484 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E5323722A4798C00E8B484 /* Main.storyboard */; };
 		16E5323B22A4798D00E8B484 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16E5323A22A4798D00E8B484 /* Assets.xcassets */; };
 		16E5323E22A4798D00E8B484 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E5323C22A4798D00E8B484 /* LaunchScreen.storyboard */; };
-		16E5324822A479E300E8B484 /* PopupOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E5324622A479E200E8B484 /* PopupOverlay.swift */; };
-		16E5324922A479E300E8B484 /* UIView+Centering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E5324722A479E200E8B484 /* UIView+Centering.swift */; };
+		605DD0CCC4782A59168511CC /* libPods-PopupOverlayExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62C55008B5792F08984F7E8C /* libPods-PopupOverlayExample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0325F0D4420AF0A5FC93EBA1 /* Pods-PopupOverlayExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopupOverlayExample.release.xcconfig"; path = "Target Support Files/Pods-PopupOverlayExample/Pods-PopupOverlayExample.release.xcconfig"; sourceTree = "<group>"; };
 		16E5323022A4798C00E8B484 /* PopupOverlayExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PopupOverlayExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E5323322A4798C00E8B484 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16E5323522A4798C00E8B484 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,8 +24,8 @@
 		16E5323A22A4798D00E8B484 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16E5323D22A4798D00E8B484 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16E5323F22A4798D00E8B484 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16E5324622A479E200E8B484 /* PopupOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupOverlay.swift; path = ../../../PopupOverlay/PopupOverlay.swift; sourceTree = "<group>"; };
-		16E5324722A479E200E8B484 /* UIView+Centering.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+Centering.swift"; path = "../../../PopupOverlay/UIView+Centering.swift"; sourceTree = "<group>"; };
+		62C55008B5792F08984F7E8C /* libPods-PopupOverlayExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PopupOverlayExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA418B74E4B4A59B4A98E9BB /* Pods-PopupOverlayExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PopupOverlayExample.debug.xcconfig"; path = "Target Support Files/Pods-PopupOverlayExample/Pods-PopupOverlayExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				605DD0CCC4782A59168511CC /* libPods-PopupOverlayExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +45,8 @@
 			children = (
 				16E5323222A4798C00E8B484 /* PopupOverlayExample */,
 				16E5323122A4798C00E8B484 /* Products */,
+				95FC08A44242343ED822EC4B /* Pods */,
+				5666C4DEA5F09554B692BBB8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,7 +61,6 @@
 		16E5323222A4798C00E8B484 /* PopupOverlayExample */ = {
 			isa = PBXGroup;
 			children = (
-				16E5324522A4799500E8B484 /* PopupOverlay */,
 				16E5323322A4798C00E8B484 /* AppDelegate.swift */,
 				16E5323522A4798C00E8B484 /* ViewController.swift */,
 				16E5323722A4798C00E8B484 /* Main.storyboard */,
@@ -69,13 +71,22 @@
 			path = PopupOverlayExample;
 			sourceTree = "<group>";
 		};
-		16E5324522A4799500E8B484 /* PopupOverlay */ = {
+		5666C4DEA5F09554B692BBB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				16E5324622A479E200E8B484 /* PopupOverlay.swift */,
-				16E5324722A479E200E8B484 /* UIView+Centering.swift */,
+				62C55008B5792F08984F7E8C /* libPods-PopupOverlayExample.a */,
 			);
-			path = PopupOverlay;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		95FC08A44242343ED822EC4B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AA418B74E4B4A59B4A98E9BB /* Pods-PopupOverlayExample.debug.xcconfig */,
+				0325F0D4420AF0A5FC93EBA1 /* Pods-PopupOverlayExample.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +96,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16E5324222A4798D00E8B484 /* Build configuration list for PBXNativeTarget "PopupOverlayExample" */;
 			buildPhases = (
+				A4DAC091AE2B82172BAAB63E /* [CP] Check Pods Manifest.lock */,
 				16E5322C22A4798C00E8B484 /* Sources */,
 				16E5322D22A4798C00E8B484 /* Frameworks */,
 				16E5322E22A4798C00E8B484 /* Resources */,
@@ -144,13 +156,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A4DAC091AE2B82172BAAB63E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PopupOverlayExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		16E5322C22A4798C00E8B484 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16E5324922A479E300E8B484 /* UIView+Centering.swift in Sources */,
-				16E5324822A479E300E8B484 /* PopupOverlay.swift in Sources */,
 				16E5323622A4798C00E8B484 /* ViewController.swift in Sources */,
 				16E5323422A4798C00E8B484 /* AppDelegate.swift in Sources */,
 			);
@@ -296,6 +331,7 @@
 		};
 		16E5324322A4798D00E8B484 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA418B74E4B4A59B4A98E9BB /* Pods-PopupOverlayExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -314,6 +350,7 @@
 		};
 		16E5324422A4798D00E8B484 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0325F0D4420AF0A5FC93EBA1 /* Pods-PopupOverlayExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

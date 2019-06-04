@@ -1,0 +1,9 @@
+platform :ios, '10.0'
+
+#source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/ga083/PodSpecs.git'
+
+target 'PopupOverlayExample' do
+  pod 'PopupOverlay'
+end
+
