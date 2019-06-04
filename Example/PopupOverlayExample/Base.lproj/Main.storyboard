@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PopupOverlayExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBh-uz-YgC">
+                                <rect key="frame" x="20" y="832" width="82" height="30"/>
+                                <state key="normal" title="Customized"/>
+                                <connections>
+                                    <action selector="changeOverlayAppearance" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jni-Cs-Vzn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rjE-vZ-4H8">
+                                <rect key="frame" x="20" y="433" width="106" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Show Text Only"/>
+                                <connections>
+                                    <action selector="showTextOnlyOverlay" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mb7-wT-1KC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pfz-j4-ImU">
+                                <rect key="frame" x="268" y="832" width="126" height="30"/>
+                                <state key="normal" title="Reset Appeaarnce"/>
+                                <connections>
+                                    <action selector="resetOverlayAppearance" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Vr-rR-tGa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgU-1V-n60">
+                                <rect key="frame" x="248" y="433" width="146" height="30"/>
+                                <state key="normal" title="Show Text and Image"/>
+                                <connections>
+                                    <action selector="showTextAndImageOverlay" destination="BYZ-38-t0r" eventType="touchUpInside" id="v4g-w8-4QH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rjE-vZ-4H8" firstAttribute="leading" secondItem="YBh-uz-YgC" secondAttribute="leading" id="AYd-UC-R4a"/>
+                            <constraint firstItem="CgU-1V-n60" firstAttribute="trailing" secondItem="Pfz-j4-ImU" secondAttribute="trailing" id="D44-4L-KWw"/>
+                            <constraint firstItem="YBh-uz-YgC" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="GqC-y1-t4v"/>
+                            <constraint firstItem="YBh-uz-YgC" firstAttribute="baseline" secondItem="Pfz-j4-ImU" secondAttribute="baseline" id="KsV-aG-MSl"/>
+                            <constraint firstItem="CgU-1V-n60" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="c4H-vh-d7W"/>
+                            <constraint firstItem="rjE-vZ-4H8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="lgL-IV-mxb"/>
+                            <constraint firstItem="rjE-vZ-4H8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="nQi-Lp-lgs"/>
+                            <constraint firstItem="rjE-vZ-4H8" firstAttribute="baseline" secondItem="CgU-1V-n60" secondAttribute="baseline" id="wR0-Yi-rI1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="37.681159420289859" y="18.75"/>
+        </scene>
+    </scenes>
+</document>
