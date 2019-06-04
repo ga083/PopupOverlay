@@ -8,19 +8,19 @@
 
 import UIKit
 
-class PopupOverlay {
-    var font: UIFont!
-    var textColor: UIColor!
-    var backgroundColor: UIColor!
+open class PopupOverlay {
+    public var font: UIFont!
+    public var textColor: UIColor!
+    public var backgroundColor: UIColor!
     
-    var cornerRadius: CGFloat!
-    var padding: CGFloat!
+    public var cornerRadius: CGFloat!
+    public var padding: CGFloat!
     
     private var tapGesture: UITapGestureRecognizer!
     
     private let containerViewTag = 456987123
     
-    init() {
+    public init() {
         self.setDefaultAppearance()
         tapGesture = UITapGestureRecognizer(target: self,
                                             action: #selector(self.closePopupOverlay))
@@ -58,7 +58,7 @@ class PopupOverlay {
      ````
      */
     @discardableResult
-    open func showPopupOverlay(text: String, image: UIImage = UIImage()) -> UIView {
+    public func showPopupOverlay(text: String, image: UIImage = UIImage()) -> UIView {
         let parentView = setupBlockerView()
         
         let imageView = UIImageView(image: image)
