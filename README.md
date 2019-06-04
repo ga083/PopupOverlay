@@ -4,16 +4,6 @@ Based on [SwiftOverlays](https://github.com/peterprokop/SwiftOverlays) done by p
 
 ### A popup message that dims the background and displays text and image.
 
-Can display text and image:
-
-<img src="Assets/text-n-image.png" height="500">
-
-Or text only (can also be long text):
-
-<img src="Assets/long-text.png" height="500">
-
-It can also be customized:
-
 <img src="Assets/demo.gif" height="500">
 
 ## Install
