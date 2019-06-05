@@ -58,7 +58,7 @@ open class PopupOverlay {
      ````
      */
     @discardableResult
-    public func showPopupOverlay(text: String, image: UIImage = UIImage()) -> UIView {
+    open func showPopupOverlay(text: String, image: UIImage = UIImage()) -> UIView {
         let parentView = setupBlockerView()
         
         let imageView = UIImageView(image: image)
