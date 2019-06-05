@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '10.0'
   s.swift_version = "5.0"
   s.name = "PopupOverlay"
-  s.version = "1.0.1"
+  s.version = "1.1.0"
   s.summary = "A popup message that dims the background and displays text and image."
   s.description = <<-DESC
 A popup message that dims the background and displays text and image.
