@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		167C49F822ACB1C600D100D1 /* UILabel+PopupOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167C49F722ACB1C600D100D1 /* UILabel+PopupOverlay.swift */; };
 		16E5321E22A465E100E8B484 /* PopupOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E5321D22A465E100E8B484 /* PopupOverlay.swift */; };
-		16E5322622A4765A00E8B484 /* UIView+Centering.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E5322522A4765A00E8B484 /* UIView+Centering.swift */; };
+		16E5322622A4765A00E8B484 /* UIView+PopupOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E5322522A4765A00E8B484 /* UIView+PopupOverlay.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,9 +25,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		167C49F722ACB1C600D100D1 /* UILabel+PopupOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+PopupOverlay.swift"; sourceTree = "<group>"; };
 		16E5321A22A465E100E8B484 /* libPopupOverlay.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPopupOverlay.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E5321D22A465E100E8B484 /* PopupOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupOverlay.swift; sourceTree = "<group>"; };
-		16E5322522A4765A00E8B484 /* UIView+Centering.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Centering.swift"; sourceTree = "<group>"; };
+		16E5322522A4765A00E8B484 /* UIView+PopupOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+PopupOverlay.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,8 @@
 			isa = PBXGroup;
 			children = (
 				16E5321D22A465E100E8B484 /* PopupOverlay.swift */,
-				16E5322522A4765A00E8B484 /* UIView+Centering.swift */,
+				167C49F722ACB1C600D100D1 /* UILabel+PopupOverlay.swift */,
+				16E5322522A4765A00E8B484 /* UIView+PopupOverlay.swift */,
 			);
 			path = PopupOverlay;
 			sourceTree = "<group>";
@@ -122,8 +125,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16E5322622A4765A00E8B484 /* UIView+Centering.swift in Sources */,
+				16E5322622A4765A00E8B484 /* UIView+PopupOverlay.swift in Sources */,
 				16E5321E22A465E100E8B484 /* PopupOverlay.swift in Sources */,
+				167C49F822ACB1C600D100D1 /* UILabel+PopupOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

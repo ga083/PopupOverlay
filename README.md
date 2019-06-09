@@ -20,7 +20,8 @@ end
 
 Just copy these files into your project:
 - [x] PopupOverlay.swift
-- [x] UIView+Centering.swift
+- [x] UILabel+PopupOverlay.swift
+- [x] UIView+PopupOverlay.swift
 
 ## Usage example
 

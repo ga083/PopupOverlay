@@ -12,18 +12,20 @@ open class PopupOverlay {
     public var font: UIFont!
     public var textColor: UIColor!
     public var backgroundColor: UIColor!
-    
     public var cornerRadius: CGFloat!
     public var padding: CGFloat!
     
     private var tapGesture: UITapGestureRecognizer!
+    private var swipeRightGesture: UISwipeGestureRecognizer!
+    private var swipeLeftGesture: UISwipeGestureRecognizer!
+    private var swipeUpGesture: UISwipeGestureRecognizer!
+    private var swipeDownGesture: UISwipeGestureRecognizer!
     
-    private let containerViewTag = 456987123
+    private let tag = 456987123
     
     public init() {
         self.setDefaultAppearance()
-        tapGesture = UITapGestureRecognizer(target: self,
-                                            action: #selector(self.closePopupOverlay))
+        self.setupGestures()
     }
     
     /**
@@ -48,7 +50,7 @@ open class PopupOverlay {
      ````
      let singleLineText = "Lorem ipsum dolor sit amet"
      ````
-
+     
      If the text is too long, a multiline string literal can be used to present longer text:
      ````
      let multilineText = """
@@ -59,118 +61,87 @@ open class PopupOverlay {
      */
     @discardableResult
     open func showPopupOverlay(text: String, image: UIImage = UIImage()) -> UIView {
-        let parentView = setupBlockerView()
-        
         let imageView = UIImageView(image: image)
-        let label = labelForText(text)
+        let label = UILabel.popupLabel(text: text, font: font, textColor: textColor)
         
-        let actualSize = popupSize(forLabel: label, imageView: imageView)
+        let popupSize = size(label: label, andImage: imageView)
+        let popupView = UIView.popupView(size: popupSize,
+                                         cornerRadius: cornerRadius,
+                                         color: backgroundColor)
+
+        popupView.addSubview(imageView)
+        popupView.addSubview(label)
         
-        label.frame = label.frame.offsetBy(dx: padding,
-                                           dy: imageView.frame.size.height + padding * 2)
-        imageView.frame = imageView.frame.offsetBy(dx: (actualSize.width - imageView.frame.size.width)/2,
-                                                   dy: padding)
+        if let overlay = popupView.superview {
+            overlay.tag = tag
+            addGestures(toView: overlay)
+        }
         
-        // Container view
-        let containerView = buildContainerView(fromSize: actualSize, parentView: parentView)
-        containerView.addSubview(imageView)
-        containerView.addSubview(label)
-        
-        parentView.addSubview(containerView)
-        
-        containerView.centerViewInSuperview()
-        
-        containerView.addGestureRecognizer(tapGesture) // Add a tap gesture to dismiss the overlay.
-        
-        return containerView
+        return popupView
     }
     
     /**
      Dismisses the PopupOverlay from the screen.
      
-     The PopupOverlay has a tap gesture to dismiss itself automatically, however if needed, it
-     can also be dismissed by calling this function. Note that if a reference to the PopupOverlay
+     The PopupOverlay has tap and swipe gestures to dismiss itself automatically, however if needed,
+     it can also be dismissed by calling this function. Note that if a reference to the PopupOverlay
      object is not maintained, the PopupOverlay will be deallocated and the built in tap gesture
      won't work.
      */
     @objc open func closePopupOverlay() {
         let parentView = UIApplication.shared.delegate!.window!!
         parentView.subviews
-            .filter { $0.tag == containerViewTag }
+            .filter { $0.tag == tag }
             .forEach { $0.removeFromSuperview() }
     }
     
     // MARK: - Private class methods -
-    
-    private func labelForText(_ text: String) -> UILabel {
-        let textSize = text.size(withAttributes: [NSAttributedString.Key.font: font as Any])
-        
-        let labelRect = CGRect(origin: .zero, size: textSize)
-        
-        let label = UILabel(frame: labelRect)
-        label.font = font
-        label.textColor = textColor
-        label.text = text
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        
-        return label
-    }
-    
-    private func popupSize(forLabel label: UILabel, imageView: UIImageView) -> CGSize {
+
+    // TODO: this is bad practice, fix it!
+    private func size(label: UILabel, andImage imageView: UIImageView) -> CGSize {
         let totalWidth = max(imageView.frame.size.width, label.frame.size.width)
         let totalHeight = label.frame.size.height + imageView.frame.size.height
         
-        return CGSize(width: totalWidth + padding * 2,
-                      height: totalHeight + padding * 3)
+        let actualSize = CGSize(width: totalWidth + padding * 2,
+                                height: totalHeight + padding * 3)
+        
+        label.frame = label.frame.offsetBy(dx: padding,
+                                           dy: imageView.frame.size.height + padding * 2)
+        imageView.frame = imageView.frame.offsetBy(dx: (actualSize.width - imageView.frame.size.width)/2,
+                                                   dy: padding)
+        
+        return actualSize
     }
     
-    private func buildContainerView(fromSize size: CGSize, parentView: UIView) -> UIView {
-        let containerViewRect = CGRect(origin: .zero, size: size)
-        let containerView = UIView(frame: containerViewRect)
+    private func setupGestures() {
+        let closeSelector = #selector(self.closePopupOverlay)
         
-        containerView.tag = containerViewTag
-        containerView.layer.cornerRadius = cornerRadius
-        containerView.backgroundColor = backgroundColor
-        containerView.center = CGPoint(
-            x: parentView.bounds.size.width/2,
-            y: parentView.bounds.size.height/2
-        )
+        tapGesture = UITapGestureRecognizer(target: self,
+                                            action: closeSelector)
         
-        return containerView
+        swipeRightGesture = UISwipeGestureRecognizer(target: self,
+                                                     action: closeSelector)
+        
+        swipeUpGesture = UISwipeGestureRecognizer(target: self,
+                                                  action: closeSelector)
+        swipeUpGesture.direction = .up
+        
+        swipeDownGesture = UISwipeGestureRecognizer(target: self,
+                                                    action: closeSelector)
+        swipeDownGesture.direction = .down
+        
+        swipeLeftGesture = UISwipeGestureRecognizer(target: self,
+                                                    action: closeSelector)
+        swipeLeftGesture.direction = .left
     }
     
-    private func setupBlockerView() -> UIView {
-        let window = UIApplication.shared.delegate!.window!!
-        
-        let blocker = UIView(frame: window.bounds)
-        blocker.backgroundColor = backgroundColor
-        blocker.tag = containerViewTag
-        
-        blocker.translatesAutoresizingMaskIntoConstraints = false
-        
-        window.addSubview(blocker)
-        
-        let viewsDictionary = ["blocker": blocker]
-        
-        // Add constraints to handle orientation change
-        let constraintsV = NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-0-[blocker]-0-|",
-            options: [],
-            metrics: nil,
-            views: viewsDictionary
-        )
-        
-        let constraintsH = NSLayoutConstraint.constraints(
-            withVisualFormat: "|-0-[blocker]-0-|",
-            options: [],
-            metrics: nil,
-            views: viewsDictionary
-        )
-        
-        window.addConstraints(constraintsV + constraintsH)
-        
-        return blocker
+    private func addGestures(toView view: UIView) {
+        // Add gestures to dismiss the overlay.
+        view.addGestureRecognizer(tapGesture)
+        view.addGestureRecognizer(swipeUpGesture)
+        view.addGestureRecognizer(swipeDownGesture)
+        view.addGestureRecognizer(swipeLeftGesture)
+        view.addGestureRecognizer(swipeRightGesture)
     }
 }
 
